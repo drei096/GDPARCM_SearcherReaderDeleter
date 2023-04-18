@@ -9,7 +9,6 @@ SceneBG::SceneBG(std::string name) : AGameObject(name) {}
 
 void SceneBG::initialize()
 {
-	std::cout << "Declared as " << this->getName() << "\n";
 
 	//assign texture
 	sf::Sprite* sprite = new sf::Sprite();

@@ -28,6 +28,11 @@ void TextureManager::loadAll()
 {
 	//BG TEXTURE
 	loadTexture("desert_bg", "Media/Textures/Desert.png");
+
+	//SEARCHER, INSERTER, DELETER ICONS
+	loadTexture("searcher_icon", "Media/Textures/searcher_icon.png");
+	loadTexture("inserter_icon", "Media/Textures/inserter_icon.png");
+	loadTexture("deleter_icon", "Media/Textures/deleter_icon.png");
 	
 	//ADD ALL TEXTURES TO LOAD BELOW
 	for(int tileIdx = 0; tileIdx < 480; tileIdx++)

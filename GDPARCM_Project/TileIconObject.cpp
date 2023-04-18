@@ -13,7 +13,6 @@ TileIconObject::TileIconObject(std::string name, int tileID) : AGameObject(name)
 
 void TileIconObject::initialize()
 {
-	std::cout << "Declared as " << this->getName() << "\n";
 
 	//assign texture
 	sf::Sprite* sprite = new sf::Sprite();

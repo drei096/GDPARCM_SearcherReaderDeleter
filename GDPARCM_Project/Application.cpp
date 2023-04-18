@@ -4,6 +4,7 @@
 #include "SceneManager.h"
 #include "ThreadedScene_1.h"
 #include "TextureManager.h"
+#include "TileIconObjectManager.h"
 
 const sf::Time Application::TIME_PER_FRAME = sf::seconds(1.f / 60.f);
 const float FRAME_RATE = 60.0f;
@@ -86,6 +87,8 @@ void Application::render()
     mWindow.clear();
 
     GameObjectManager::getInstance()->draw(&mWindow);
+    TileIconObjectManager::getInstance()->drawAllIcons(&mWindow);
+
     fpsText->setString("FPS:");
     fpsText->setPosition(WINDOW_WIDTH - 300, WINDOW_HEIGHT - 100);
     mWindow.draw(*fpsText);

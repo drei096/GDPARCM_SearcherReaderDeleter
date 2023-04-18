@@ -18,7 +18,7 @@ SceneManager* SceneManager::getInstance()
 
 void SceneManager::registerScene(AScene* scene)
 {
-	std::cout << scene->getSceneName() << " registered! \n";
+	//std::cout << scene->getSceneName() << " registered! \n";
 	this->storedScenes[scene->getSceneName()] = scene;
 }
 

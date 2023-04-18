@@ -22,7 +22,7 @@ void ThreadedScene_1::onLoadObjects()
     SceneBG* bgObject = new SceneBG("BGObject");
     this->registerObject(bgObject);
 
-    SearchInsertDeleteObject* parcm_ho_object = new SearchInsertDeleteObject("parcm_ho_object");
+    SearchInsertDeleteObject* parcm_ho_object = new SearchInsertDeleteObject("parcm_ho_object", "consoleOutput.txt");
     this->registerObject(parcm_ho_object);
 }
 

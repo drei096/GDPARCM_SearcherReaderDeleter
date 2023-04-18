@@ -2,6 +2,7 @@
 
 #include "TextureManager.h"
 #include "TileIconObject.h"
+#include "ArrowIndicatorObject.h"
 
 class TileIconObjectManager
 {
@@ -23,5 +24,18 @@ public:
 
     std::vector<TileIconObject*> displayedIconObjectsList;
     std::vector<TileIconObject*> iconObjectBank;
+    std::vector<ArrowIndicatorObject*> arrowIndicatorList;
+
+    std::queue<TileIconObject*> deletedIconList;
+
+    std::vector<sf::Vector2f> displayedIconObjectsPositionList;
+    std::vector<sf::Vector2f> iconObjectBankPositionList;
+
+public:
+    void loadAllIcons();
+    void drawAllIcons(sf::RenderWindow* window);
+
+private:
+    int currColumn = 0;
 };
 

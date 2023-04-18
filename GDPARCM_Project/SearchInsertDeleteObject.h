@@ -5,11 +5,13 @@
 #include "InserterThread.h"
 #include "DeleterThread.h"
 #include "SemaphoreObject.h"
+#include <queue>
+#include <fstream>
 
 class SearchInsertDeleteObject : public AGameObject
 {
 public:
-	SearchInsertDeleteObject(std::string name);
+	SearchInsertDeleteObject(std::string name, std::string fileName);
 	~SearchInsertDeleteObject();
 
 	//no need to call manually
@@ -22,8 +24,20 @@ private:
 	int maxInsertersCount = 2;
 	int maxDeletersCount = 1;
 
+public:
 	int currSearchersCount = 0;
 	int currInsertersCount = 0;
 	int currDeletersCount = 0;
+
+	SemaphoreObject* mutexSem;
+	SemaphoreObject* turnStile;
+	SemaphoreObject* roomEmpty;
+	SemaphoreObject* inserterTurnstile;
+	SemaphoreObject* deleterTurnstile;
+
+	std::queue<int> deletedIndexQueue;
+	std::queue<int> deletedBankIndexQueue;
+
+	std::ofstream outputFile;
 };
 
