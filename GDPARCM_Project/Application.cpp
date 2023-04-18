@@ -2,7 +2,6 @@
 
 #include "GameObjectManager.h"
 #include "SceneManager.h"
-#include "NonThreadedScene.h"
 #include "ThreadedScene_1.h"
 #include "TextureManager.h"
 
@@ -26,7 +25,6 @@ mWindow(sf::VideoMode(Application::WINDOW_WIDTH, Application::WINDOW_HEIGHT), "S
     fpsCount->setCharacterSize(48);
 
     SceneManager::getInstance()->registerScene(new ThreadedScene_1());
-
     SceneManager::getInstance()->loadScene(SceneManager::THREADED_SCENE_1_NAME);
 
     
