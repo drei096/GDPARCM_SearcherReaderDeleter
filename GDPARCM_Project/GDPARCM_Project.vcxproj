@@ -176,6 +176,7 @@
     <ClCompile Include="SceneBG.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SearcherThread.cpp" />
+    <ClCompile Include="SearchInsertDeleteObject.cpp" />
     <ClCompile Include="SemaphoreObject.cpp" />
     <ClCompile Include="StringUtils.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="SceneBG.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SearcherThread.h" />
+    <ClInclude Include="SearchInsertDeleteObject.h" />
     <ClInclude Include="SemaphoreObject.h" />
     <ClInclude Include="StringUtils.h" />
     <ClInclude Include="TextureManager.h" />
