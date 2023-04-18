@@ -23,13 +23,5 @@ public:
 
     std::vector<TileIconObject*> displayedIconObjectsList;
     std::vector<TileIconObject*> iconObjectBank;
-
-    int maxSearchersCount = 4;
-    int maxInsertersCount = 2;
-    int maxDeletersCount = 1;
-
-    int currSearchersCount = 0;
-    int currInsertersCount = 0;
-    int currDeletersCount = 0;
 };
 
