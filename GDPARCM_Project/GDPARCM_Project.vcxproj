@@ -164,15 +164,18 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="AScene.cpp" />
     <ClCompile Include="AssetLoaderThread.cpp" />
+    <ClCompile Include="DeleterThread.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="IExecutionEvent.cpp" />
     <ClCompile Include="IFinishedTask.cpp" />
+    <ClCompile Include="InserterThread.cpp" />
     <ClCompile Include="IWorkerAction.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PoolWorkerThread.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SceneBG.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SearcherThread.cpp" />
     <ClCompile Include="SemaphoreObject.cpp" />
     <ClCompile Include="StringUtils.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -180,6 +183,7 @@
     <ClCompile Include="ThreadObject.cpp" />
     <ClCompile Include="ThreadPool.cpp" />
     <ClCompile Include="TileIconObject.cpp" />
+    <ClCompile Include="TileIconObjectManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AComponent.h" />
@@ -187,14 +191,17 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="AScene.h" />
     <ClInclude Include="AssetLoaderThread.h" />
+    <ClInclude Include="DeleterThread.h" />
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="IExecutionEvent.h" />
     <ClInclude Include="IFinishedTask.h" />
+    <ClInclude Include="InserterThread.h" />
     <ClInclude Include="IWorkerAction.h" />
     <ClInclude Include="PoolWorkerThread.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="SceneBG.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SearcherThread.h" />
     <ClInclude Include="SemaphoreObject.h" />
     <ClInclude Include="StringUtils.h" />
     <ClInclude Include="TextureManager.h" />
@@ -202,6 +209,7 @@
     <ClInclude Include="ThreadObject.h" />
     <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="TileIconObject.h" />
+    <ClInclude Include="TileIconObjectManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

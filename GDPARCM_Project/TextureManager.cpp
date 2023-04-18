@@ -12,11 +12,6 @@ TextureManager* TextureManager::sharedInstance = NULL;
 
 TextureManager::TextureManager()
 {
-	texManager_ThreadPool = new ThreadPool("texManagerThreadPool", 16);
-	if (texManager_ThreadPool)
-		std::cout << "Texmanagerthreadpool is created" << std::endl;
-
-	this->texManager_ThreadPool->StartScheduler();
 }
 
 TextureManager* TextureManager::getInstance()
@@ -32,57 +27,46 @@ TextureManager* TextureManager::getInstance()
 void TextureManager::loadAll()
 {
 	//BG TEXTURE
-	loadTexture("desert_bg", "Media/Textures/Desert.png", false);
-	sf::Texture* bgTex;
-	bgTex = getTexture("desert_bg");
-	bgTex->setRepeated(true);
-
+	loadTexture("desert_bg", "Media/Textures/Desert.png");
+	
 	//ADD ALL TEXTURES TO LOAD BELOW
 	for(int tileIdx = 0; tileIdx < 480; tileIdx++)
 	{
 		if(tileIdx < 10)
 		{
 			std::string idx = "tile00";
-			loadTexture(idx + std::to_string(tileIdx), "Media/Streaming/" + idx + std::to_string(tileIdx) + ".png", false);
+			loadTexture(idx + std::to_string(tileIdx), "Media/Streaming/" + idx + std::to_string(tileIdx) + ".png");
 		}
 			
 		else if (tileIdx < 100)
 		{
 			std::string idx = "tile0";
-			loadTexture(idx + std::to_string(tileIdx), "Media/Streaming/" + idx + std::to_string(tileIdx) + ".png", false);
+			loadTexture(idx + std::to_string(tileIdx), "Media/Streaming/" + idx + std::to_string(tileIdx) + ".png");
 		}
 			
 		else
 		{
 			std::string idx = "tile";
-			loadTexture(idx + std::to_string(tileIdx), "Media/Streaming/" + idx + std::to_string(tileIdx) + ".png", false);
+			loadTexture(idx + std::to_string(tileIdx), "Media/Streaming/" + idx + std::to_string(tileIdx) + ".png");
 		}
-			
 	}
 	
 }
 
-void TextureManager::loadTexture(std::string key, std::string path, bool isStreaming)
+void TextureManager::loadTexture(std::string key, std::string path)
 {
 	sf::Texture* texture = new sf::Texture();
 	texture->loadFromFile(path);
-	this->textureMap[key].push_back(texture);
 
-	if (isStreaming)
-	{
-		this->stream_textureList.push_back(texture);
-	}
-	else
-	{
-		this->base_textureList.push_back(texture);
-	}
+	this->base_textureList.push_back(texture);
+	textureMap[key] = texture;
 }
 
 
 
 void TextureManager::loadSingleStreamAsset(int index, IExecutionEvent* execution_event)
 {
-	
+	/*
 	int file_num = 0;
 
 	for(const auto& entry : std::filesystem::directory_iterator("Media/Streaming/"))
@@ -96,45 +80,25 @@ void TextureManager::loadSingleStreamAsset(int index, IExecutionEvent* execution
 		}
 		file_num++;
 	}
-	
+	*/
+
 }
 
 
 sf::Texture* TextureManager::getTexture(std::string key)
 {
-	/*
-	if (textureMap[key] != NULL) 
+	
+	if (textureMap[key] != nullptr) 
 	{
 		return textureMap[key];
 	}
 	else 
 	{
 		std::cout << "No texture found for " << key;
-		return NULL;
-	}
-	*/
-	return NULL;
-}
-
-void TextureManager::testFunction()
-{
-	std::cout << "Hi, I'm single-ton ;D";
-}
-
-sf::Texture* TextureManager::getFromTextureMap(const std::string assetName, int frameIndex)
-{
-	if (!this->textureMap[assetName].empty()) {
-		return this->textureMap[assetName][frameIndex];
-	}
-	else {
-		std::cout << "[TextureManager] No texture found for " << assetName << std::endl;
-		return NULL;
+		return nullptr;
 	}
 }
 
-sf::Texture* TextureManager::getStreamTextureFromList(const int index)
-{
-	return this->stream_textureList[index];
-}
+
 
 

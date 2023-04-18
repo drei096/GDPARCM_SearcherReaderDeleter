@@ -13,6 +13,8 @@ mWindow(sf::VideoMode(Application::WINDOW_WIDTH, Application::WINDOW_HEIGHT), "S
 {
     this->mWindow.setFramerateLimit(int(FRAME_RATE));
 
+    TextureManager::getInstance()->loadAll();
+
     font = new sf::Font();
     font->loadFromFile("Media/Sansation.ttf");
 

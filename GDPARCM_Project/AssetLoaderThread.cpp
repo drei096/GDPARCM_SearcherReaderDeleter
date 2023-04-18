@@ -24,7 +24,7 @@ void AssetLoaderThread::OnStartTask()
 
 	std::vector<std::string> tokens = StringUtils::split(asset_path, '/');
 	std::string assetName = StringUtils::split(tokens[tokens.size() - 1], '.')[0];
-	TextureManager::getInstance()->loadTexture(assetName, asset_path, true);
+	TextureManager::getInstance()->loadTexture(assetName, asset_path);
 
 
 	this->executionEvent->OnFinishedExecution();

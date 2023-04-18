@@ -9,15 +9,10 @@ class TextureManager
 {
 public:
     static TextureManager* getInstance();
-    void testFunction();
 
     void loadAll();
-    sf::Texture* getTexture(std::string);
-    sf::Texture* getFromTextureMap(const std::string assetName, int frameIndex);
-    sf::Texture* getStreamTextureFromList(const int index);
+    sf::Texture* getTexture(std::string key);
 
-private:
-    ThreadPool* texManager_ThreadPool = nullptr;
 
 private:
     // set constructor to private
@@ -30,14 +25,13 @@ private:
 
 
     std::vector<sf::Texture*> base_textureList;
-    std::vector<sf::Texture*> stream_textureList;
-    std::unordered_map<std::string, std::vector<sf::Texture*>> textureMap;
+    std::unordered_map<std::string, sf::Texture*> textureMap;
 
     
 
 
 public:
-    void loadTexture(std::string, std::string, bool isStreaming);
+    void loadTexture(std::string key, std::string path);
     void loadSingleStreamAsset(int index, IExecutionEvent* execution_event);
 
 public:

@@ -18,7 +18,7 @@ void TileIconObject::initialize()
 	//assign texture
 	sf::Sprite* sprite = new sf::Sprite();
 
-	sf::Texture* texture = TextureManager::getInstance()->getStreamTextureFromList(this->tileIndex);
+	sf::Texture* texture = TextureManager::getInstance()->getTexture(this->name);
 	sprite->setTexture(*texture);
 	
 

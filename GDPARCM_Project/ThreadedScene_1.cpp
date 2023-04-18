@@ -2,9 +2,7 @@
 #include "GameObjectManager.h"
 #include "TextureManager.h"
 #include "SceneBG.h"
-#include "TileIconObject.h"
-
-#include "AssetLoaderThread.h"
+#include "TileIconObjectManager.h"
 
 ThreadedScene_1::ThreadedScene_1() : AScene("ThreadedScene_1")
 {

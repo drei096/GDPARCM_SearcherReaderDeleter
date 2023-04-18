@@ -14,8 +14,7 @@ void SceneBG::initialize()
 	//assign texture
 	sf::Sprite* sprite = new sf::Sprite();
 	sf::Texture* texture = new sf::Texture();
-	TextureManager::getInstance()->loadTexture("desert_bg", "Media/Textures/Desert.png", false);
-	texture = TextureManager::getInstance()->getFromTextureMap("desert_bg", 0);
+	texture = TextureManager::getInstance()->getTexture("desert_bg");
 
 	sprite->setTexture(*texture);
 	
