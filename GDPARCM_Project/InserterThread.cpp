@@ -43,6 +43,7 @@ void InserterThread::insertToList()
 
 	auto tileIconManager = TileIconObjectManager::getInstance();
 
+	/*
 	if(this->SID_Object->deletedIndexQueue.empty() == false)
 	{
 		std::random_device rd;
@@ -72,9 +73,34 @@ void InserterThread::insertToList()
 		//pop the front of the deleted icon list queue
 		tileIconManager->deletedIconList.pop();
 	}
-	
+	*/
 
-	
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dist(0, TileIconObjectManager::getInstance()->maxDisplayedIconsCount);
+
+	int randomIdx = dist(gen);
+
+
+	int insertIndex = this->SID_Object->deletedIndexQueue.front();
+	this->SID_Object->deletedIndexQueue.pop();
+
+	arrowIndicator->setPosition(tileIconManager->displayedIconObjectsPositionList[insertIndex].x, 68 * (7 + threadID));
+
+	//place the front of the icon bank to the deleted area
+	tileIconManager->displayedIconObjectsList.emplace(tileIconManager->displayedIconObjectsList.begin() + insertIndex, tileIconManager->iconObjectBank.front());
+	tileIconManager->displayedIconObjectsList[insertIndex]->setPosition(tileIconManager->displayedIconObjectsPositionList[insertIndex].x, tileIconManager->displayedIconObjectsPositionList[insertIndex].y);
+	std::cout << "Inserter thread " << threadID << " inserted at index: " << insertIndex << std::endl;
+	this->SID_Object->outputFile << "Inserter thread " << threadID << " inserted at index: " << insertIndex << std::endl;
+
+	//delete the front of the icon bank
+	tileIconManager->iconObjectBank.erase(tileIconManager->iconObjectBank.begin());
+
+	//push to back of icon bank yung deleted icon from display
+	tileIconManager->iconObjectBank.push_back(tileIconManager->deletedIconList.front());
+
+	//pop the front of the deleted icon list queue
+	tileIconManager->deletedIconList.pop();
 	
 		
 

@@ -33,7 +33,6 @@ public:
 	SemaphoreObject* turnStile;
 	SemaphoreObject* roomEmpty;
 	SemaphoreObject* inserterTurnstile;
-	SemaphoreObject* deleterTurnstile;
 
 	std::queue<int> deletedIndexQueue;
 	std::queue<int> deletedBankIndexQueue;

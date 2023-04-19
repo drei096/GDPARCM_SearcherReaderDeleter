@@ -67,13 +67,9 @@ void SearcherThread::searchList()
 	while(this->currSearchIndex != randomIdx)
 	{
 		arrowIndicator->setPosition(TileIconObjectManager::getInstance()->displayedIconObjectsPositionList[currSearchIndex].x, 68 * (2 + threadID));
-		
 
 		this->currSearchIndex++;
 
-
-
-		
 		ThreadObject::Sleep(100);
 	}
 }

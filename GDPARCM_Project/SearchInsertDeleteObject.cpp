@@ -18,7 +18,6 @@ void SearchInsertDeleteObject::initialize()
 	this->turnStile = new SemaphoreObject(1);
 	this->roomEmpty = new SemaphoreObject(1);
 	this->inserterTurnstile = new SemaphoreObject(0);
-	this->deleterTurnstile = new SemaphoreObject(1);
 
 	for (int i = 0; i < this->maxDeletersCount; i++)
 	{
